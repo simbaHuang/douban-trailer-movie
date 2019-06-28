@@ -1,0 +1,27 @@
+{
+  "name": "douban-trailer-movie",
+  "version": "1.0.0",
+  "description": "豆瓣电影预告片",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simbaHuang/douban-trailer-movie.git"
+  },
+  "keywords": [
+    "moview",
+    "trailer"
+  ],
+  "author": "simba",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/simbaHuang/douban-trailer-movie/issues"
+  },
+  "homepage": "https://github.com/simbaHuang/douban-trailer-movie#readme",
+  "dependencies": {
+    "koa": "^2.7.0"
+  }
+}
