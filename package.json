@@ -5,6 +5,7 @@
   "main": "server/index.js",
   "scripts": {
     "start": "node server/index.js",
+    "build": "rm -rf parcel/dist && parcel build parcel/index.html --no-cache -d parcel/dist --public-url /dist/",
     "test": "\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C"
   },
   "repository": {
@@ -22,9 +23,25 @@
   },
   "homepage": "https://github.com/simbaHuang/douban-trailer-movie#readme",
   "dependencies": {
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "ejs": "^2.6.2",
     "koa": "^2.7.0",
+    "koa-static": "^5.0.0",
     "koa-views": "^6.2.0",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "puppeteer": "^1.18.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.7"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "cssnano": "^4.1.10"
   }
 }
