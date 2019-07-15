@@ -2,21 +2,27 @@ const Koa = require('koa')
 const mongoose = require('mongoose')
 const views = require('koa-views')
 const { resolve } = require('path')
-const { initSchemas, connect } = require('./database/init')
+const { initSchemas, connect, initAdmin } = require('./database/init')
+const router = require('./routes')
 
 ;(async () => {
 	await connect()
 
 	initSchemas()
 
-	const Movie = mongoose.model('Movie')
+	await initAdmin()
 
-	const movies = await Movie.find({})
-
-	console.log(movies)
+	// require('./tasks/movie')
+	// require('./tasks/api')
+	// require('./tasks/trailer')
+	// require('./tasks/qiniu')
 })()
 
 const app = new Koa()
+
+app
+	.use(router.routes())
+	.use(router.allowedMethods())
 
 app.use(views(resolve(__dirname, 'views'), {
 	extension: 'pug'
