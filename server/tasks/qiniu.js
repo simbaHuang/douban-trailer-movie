@@ -3,7 +3,6 @@ const nanoid = require('nanoid')
 const config = require('../config')
 const mongoose = require('mongoose')
 const Movie = mongoose.model('Movie')
-const Category = mongoose.model('Category')
 
 const bucket = config.qiniu.bucket
 const mac = new qiniu.auth.digest.Mac(config.qiniu.AK, config.qiniu.SK)
