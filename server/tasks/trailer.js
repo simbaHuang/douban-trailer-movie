@@ -65,8 +65,7 @@ const Category = mongoose.model('Category')
                 }
             }
         }
-
-        console.log(data)
+        // console.log(data)
     })
 
     child.send(movies)
