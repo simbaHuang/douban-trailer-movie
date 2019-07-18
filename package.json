@@ -4,8 +4,8 @@
   "description": "豆瓣电影预告片",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "build": "rm -rf parcel/dist && parcel build parcel/index.html --no-cache -d parcel/dist --public-url /dist/",
+    "start": "rm -rf dist && rm -rf .cache && NODE_ENV=development nodemon ./start.js",
+    "build": "rm -rf parcel/dist && parcel build src/index.html --no-cache -d dist --public-url /",
     "test": "\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C"
   },
   "repository": {
@@ -49,8 +49,12 @@
     "request-promise-native": "^1.0.7"
   },
   "devDependencies": {
+    "autoprefixer": "^9.6.1",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
-    "cssnano": "^4.1.10"
+    "cssnano": "^4.1.10",
+    "cssnext": "^1.8.4",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1"
   }
 }
