@@ -8,6 +8,17 @@ const routerMap = new Map();
 
 const isArray = c => _.isArray(c) ? c : [c]
 
+const normalizePath = path => path.startsWith('/') ? path : `/${path}`
+
+const router = conf => (target, key, descriptor) => {
+    conf.path = normalizePath(conf.path)
+
+    routerMap.set({
+        target: target,
+        ...conf
+    }, target[key])
+}
+
 export class Route {
     constructor (app, apiPath) {
         this.app = app
@@ -20,7 +31,7 @@ export class Route {
 
         for (let [conf, contorller] of routerMap) {
             const contorllers = isArray(contorller)
-            const prefixPath = conf.target[symbolPrefix]
+            let prefixPath = conf.target[symbolPrefix]
             if (prefixPath) prefixPath = normalizePath(prefixPath)
             const routrtPath = prefixPath + conf.path
 
@@ -30,17 +41,6 @@ export class Route {
         this.app.use(this.router.routes())
         this.app.use(this.router.allowedMethods())
     }
-}
-
-const normalizePath = path => path.startsWith('/') ? path : `/${path}`
-
-const router = conf => (target, key, descriptor) => {
-    conf.path = normalizePath(conf.path)
-
-    routerMap.set({
-        target: target,
-        ...conf
-    }, target[key])
 }
 
 export const controller = path => target => (target.prototype[symbolPrefix] = path)
